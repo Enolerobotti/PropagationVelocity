@@ -43,7 +43,7 @@ model.result(plot_group_name_KSI).feature('str1').feature('col1').set('descr', '
 model.result.export.create(export_plot_name_KSI, plot_group_name_KSI, 'str1', 'Plot');
 for d1=1:time_end-time_start+1
     time0(d1)=(d1-1+time_start)*1e-4;
-    text_file_name=['D:\FizFack\ÑOMSOL_WITH_MATLAB\Thin_Plate_A5L1_KSI_LINES\Transposed_streamline_new_method.txt'];
+    text_file_name=['D:\FizFack\Ã‘OMSOL_WITH_MATLAB\Thin_Plate_A5L1_KSI_LINES\Transposed_streamline_new_method.txt'];
     model.result(plot_group_name_KSI).set('interp', {num2str(time0(d1))});
     model.result(plot_group_name_KSI).run;
     model.result.export(export_plot_name_KSI).set('filename',text_file_name);
@@ -71,8 +71,11 @@ end
 
 %calculation the propagation velocity
 tau=2*pi*50*time0;
-cx=diff(x1)./diff(tau);
-cy=diff(y1)./diff(tau);
+%cx=diff(x1)./diff(tau);
+cx=diff(x1)/tau(1);
+%cy=diff(y1)./diff(tau);
+cy=diff(y1)/tau(1)
+%MAKE SURE that diff(tau) is a constant!!!
 %use the smooth() function to apply moving average filter (if needed)
 
 %saving all the data
