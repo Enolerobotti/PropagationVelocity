@@ -1,5 +1,5 @@
 function [s_data, format1] = save_text_file_data(x, filename, parent_filename)
-%Запись данных
+%This function is used for saving text files
 
 fid = fopen(filename,'w');
 fclose(fid);
@@ -24,4 +24,3 @@ for dd1=1:s_data(1)
     fclose(fid);
 end
 end
-
